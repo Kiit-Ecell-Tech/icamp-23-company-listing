@@ -48,6 +48,9 @@ export default function Home() {
               <th scope="col" className="px-6 py-3">
                 Mode
               </th>
+              <th scope="col" className="px-6 py-3">
+                Domains
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -78,6 +81,13 @@ export default function Home() {
                     {company?.internshipDetails?.stipend?.max}{" "}
                   </td>
                   <td className="px-6 py-4">{company?.mode}</td>
+                  <td className="px-6 py-4">
+                    <div className="flex flex-col">
+                      {company?.internshipDetails?.domains?.map((item, i) => {
+                        return <p key={`item${i}`}>{item}</p>;
+                      })}
+                    </div>
+                  </td>
                 </tr>
               );
             })}
