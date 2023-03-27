@@ -22,10 +22,10 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="w-full flex items-center justify-center max-w-7xl px-2 py-2">
-      <div className="relative overflow-x-auto  sm:rounded-lg w-full">
+    <div className="flex items-center justify-center w-full px-2 py-2 max-w-7xl">
+      <div className="relative w-full overflow-x-auto sm:rounded-lg">
         <table className="w-full text-sm text-left text-gray-500 ">
-          <thead className="text-xs text-gray-700 uppercase bg-gray-200  ">
+          <thead className="text-xs text-gray-700 uppercase bg-gray-200 ">
             <tr>
               <th scope="col" className="px-6 py-3">
                 Name
