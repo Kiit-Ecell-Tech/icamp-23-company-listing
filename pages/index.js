@@ -63,7 +63,7 @@ export default function Home() {
               {companies?.map((company, i) => {
                 return (
                   <tr className="bg-white border-b " key={i}>
-                    <td className="px-6 py-4">{i}</td>
+                    <td className="px-6 py-4">{i + 1}</td>
                     <th
                       scope="row"
                       className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap "
