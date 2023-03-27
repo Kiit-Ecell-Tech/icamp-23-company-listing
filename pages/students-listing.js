@@ -26,7 +26,7 @@ const StudentListing = () => {
       {isLoading ? (
         <div className="w-10 h-10 bg-transparent rounded-full border-t-[2px] border-teal-500 animate-spin" />
       ) : (
-        <div className="flex flex-col ">
+        <div className="flex flex-col w-full">
           <p className="p-6 text-lg font-bold text-white uppercase bg-green-600">
             Total Registrations: {students.length}
           </p>
