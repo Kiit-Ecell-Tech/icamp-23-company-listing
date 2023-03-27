@@ -23,77 +23,85 @@ export default function Home() {
 
   return (
     <div className="flex items-center justify-center w-full px-2 py-2 max-w-7xl">
-      <div className="relative w-full overflow-x-auto sm:rounded-lg">
-        <table className="w-full text-sm text-left text-gray-500 ">
-          <thead className="text-xs text-gray-700 uppercase bg-gray-200 ">
-            <tr>
-              <th scope="col" className="px-6 py-3">
-                Name
-              </th>
-              <th scope="col" className="px-6 py-3">
-                Website
-              </th>
-              <th scope="col" className="px-6 py-3">
-                Location
-              </th>
-              <th scope="col" className="px-6 py-3">
-                POC
-              </th>
-              <th scope="col" className="px-6 py-3">
-                Duration
-              </th>
-              <th scope="col" className="px-6 py-3">
-                Stipend
-              </th>
-              <th scope="col" className="px-6 py-3">
-                Mode
-              </th>
-              <th scope="col" className="px-6 py-3">
-                Domains
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {companies?.map((company, i) => {
-              return (
-                <tr className="bg-white border-b " key={i}>
-                  <th
-                    scope="row"
-                    className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap "
-                  >
-                    {company?.name}
-                  </th>
-                  <td className="px-6 py-4">{company?.website}</td>
-                  <td className="px-6 py-4">{company?.location}</td>
-                  <td className="px-6 py-4">
-                    <div className="flex flex-col items-start justify-center">
-                      <p>{company?.poc?.name}</p>
-                      <p>{company?.poc?.phone}</p>
-                      <p>{company?.poc?.email}</p>
-                    </div>
-                  </td>
-                  <td className="px-6 py-4">
-                    {company?.internshipDetails?.duration?.min} -{" "}
-                    {company?.internshipDetails?.duration?.max} months
-                  </td>
-                  <td className="px-6 py-4">
-                    Rs {company?.internshipDetails?.stipend?.min} - Rs{" "}
-                    {company?.internshipDetails?.stipend?.max}{" "}
-                  </td>
-                  <td className="px-6 py-4">{company?.mode}</td>
-                  <td className="px-6 py-4">
-                    <div className="flex flex-col">
-                      {company?.internshipDetails?.domains?.map((item, i) => {
-                        return <p key={`item${i}`}>{item}</p>;
-                      })}
-                    </div>
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      </div>
+      {isLoading ? (
+        <div className="w-10 h-10 bg-transparent rounded-full border-t-[2px] border-teal-500 animate-spin" />
+      ) : (
+        <div className="relative w-full overflow-x-auto sm:rounded-lg">
+          <table className="w-full text-sm text-left text-gray-500 ">
+            <thead className="text-xs text-gray-700 uppercase bg-gray-200 ">
+              <tr>
+                <th scope="col" className="px-6 py-3">
+                  Sl No
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  Name
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  Website
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  Location
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  POC
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  Duration
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  Stipend
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  Mode
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  Domains
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {companies?.map((company, i) => {
+                return (
+                  <tr className="bg-white border-b " key={i}>
+                    <td className="px-6 py-4">{i}</td>
+                    <th
+                      scope="row"
+                      className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap "
+                    >
+                      {company?.name}
+                    </th>
+                    <td className="px-6 py-4">{company?.website}</td>
+                    <td className="px-6 py-4">{company?.location}</td>
+                    <td className="px-6 py-4">
+                      <div className="flex flex-col items-start justify-center">
+                        <p>{company?.poc?.name}</p>
+                        <p>{company?.poc?.phone}</p>
+                        <p>{company?.poc?.email}</p>
+                      </div>
+                    </td>
+                    <td className="px-6 py-4">
+                      {company?.internshipDetails?.duration?.min} -{" "}
+                      {company?.internshipDetails?.duration?.max} months
+                    </td>
+                    <td className="px-6 py-4">
+                      Rs {company?.internshipDetails?.stipend?.min} - Rs{" "}
+                      {company?.internshipDetails?.stipend?.max}{" "}
+                    </td>
+                    <td className="px-6 py-4">{company?.mode}</td>
+                    <td className="px-6 py-4">
+                      <div className="flex flex-col">
+                        {company?.internshipDetails?.domains?.map((item, i) => {
+                          return <p key={`item${i}`}>{item}</p>;
+                        })}
+                      </div>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      )}
     </div>
   );
 }
